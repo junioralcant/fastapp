@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
+  Alert,
   SafeAreaView,
   Text,
   TextInput,
@@ -7,8 +8,22 @@ import {
   View,
 } from 'react-native';
 import {Logo} from '../../assets/icons';
+import auth from '@react-native-firebase/auth';
 
 export function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function loadFirebase() {
+    try {
+      await auth().signInWithEmailAndPassword(email, password);
+
+      Alert.alert('Usuário logado!');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <SafeAreaView className="items-center justify-center h-full bg-primary p-5">
       <View className="w-full">
@@ -21,17 +36,23 @@ export function Login() {
         </View>
 
         <TextInput
+          onChange={e => setEmail(e.nativeEvent.text)}
+          value={email}
           placeholder="Email"
           className="h-14 bg-withe-200 rounded-md mb-8"
         />
 
         <TextInput
+          onChange={e => setPassword(e.nativeEvent.text)}
+          value={password}
           placeholder="Senha"
           className="h-14 bg-withe-200 rounded-md mb-14"
           secureTextEntry
         />
 
-        <TouchableOpacity className="flex items-center justify-center h-14  rounded-md bg-yellow-200">
+        <TouchableOpacity
+          onPress={loadFirebase}
+          className="flex items-center justify-center h-14  rounded-md bg-yellow-200">
           <Text className="text-primary-200 font-bold text-base">Entrar</Text>
         </TouchableOpacity>
 
