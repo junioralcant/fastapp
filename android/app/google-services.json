@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "752361312137",
+    "project_id": "fast-app-d1f1d",
+    "storage_bucket": "fast-app-d1f1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:752361312137:android:7b7732ffc4ee37abaedb58",
+        "android_client_info": {
+          "package_name": "com.fastapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRGXlUtPpJS_pcIUmmMoa2QTg40eBrfr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
